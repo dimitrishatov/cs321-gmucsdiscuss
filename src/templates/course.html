@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <span class="title">
+        <h1>{% block title %} CS {{ course.code }}: {{ course.name }}{% endblock %}</h1>
+    </span>
+    <div class="content">
+
+    <form method="post">
+        <label for="comment">
+            Have some thoughts on this class? Leave a comment! (1000 char limit)
+        </label>
+        <br>
+        <textarea id="comment" name="comment" rows="4" cols="50" maxlength="1000"></textarea>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+    <br>
+
+    <h2>Comments</h2>
+    {% for comment in comments %}
+        <div class="post">
+            <p>{{comment.body}} by Anonymous at {{comment.timestamp}}</p>
+        </div>
+    {% endfor %}
+
+    </div> 
+{% endblock %}

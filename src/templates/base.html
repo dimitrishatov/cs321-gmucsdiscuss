@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %} - GMU CS Discuss</title>
+    <style>
+    </style>
+</head>
+<body>
+    <nav>
+        <h1><a href="{{ url_for('index') }}">GMU CS Discuss</a></h1>
+    </nav>
+    <hr>
+    <div class="content">
+        {% block content %} {% endblock %}
+    </div>
+</body>
+</html>
