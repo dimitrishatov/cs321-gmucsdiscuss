@@ -20,7 +20,17 @@
     <h2>Comments</h2>
     {% for comment in comments %}
         <div class="post">
-            <p>{{comment.body}} by Anonymous at {{comment.timestamp}}</p>
+            <p>{{comment.body}} by Anonymous at {{comment.timestamp}} ({{comment.upvotes|sum(attribute='value')}})</p>
+            <form method="post">
+                <input type="hidden" id="comment_id" name="comment_id" value="{{comment.id}}">
+                <input type="hidden" id="value" name="value" value="1">
+                <button type="submit">Upvote</button>
+            </form>
+            <form method="post">
+                <input type="hidden" id="comment_id" name="comment_id" value="{{comment.id}}">
+                <input type="hidden" id="value" name="value" value="-1">
+                <button type="submit">Downvote</button>
+            </form>
         </div>
     {% endfor %}
 

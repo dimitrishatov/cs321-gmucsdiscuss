@@ -1,9 +1,10 @@
-from flask import Flask, render_template, abort, request, redirect, url_for
+from flask import Flask, render_template, abort, request, redirect, url_for, make_response
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import desc
 from os import path
 from datetime import datetime
 from courses import cs_courses
+import random, string
 
 print("Starting app")
 app = Flask(__name__)
@@ -16,6 +17,7 @@ DB_NAME = 'database.db'
 app.config['SQLALCHEMY_DATABASE_URI'] = \
    'sqlite:///' + dbpath
 db = SQLAlchemy(app)
+db.init_app(app)
 
 ### ===== MODEL DEFINITIONS ===== ####
 class Course(db.Model): 
@@ -27,14 +29,22 @@ class Course(db.Model):
    def __repr__(self):
           return f'<Course CS {self.code}>'
 
+class Upvote(db.Model):
+   id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+   value = db.Column(db.Integer)
+   comment_id = db.Column(db.Integer, db.ForeignKey('comment.id'))
+   user_cookie = db.Column(db.String(10))
+
 class Comment(db.Model):
    id = db.Column(db.Integer, primary_key=True)
    body = db.Column(db.String(1000))
    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
    course = db.Column(db.Integer, db.ForeignKey('course.code'))
-
+   upvotes = db.relationship(Upvote)
    def __repr__(self):
       return f'<Post {self.body}>'
+
+
 
 ### ===== END OF MODEL DEFINITIONS ===== ####
 
@@ -52,6 +62,10 @@ def populate():
       db.session.add(course_obj)
    db.session.commit()
 
+if not path.exists(DB_NAME):
+   db.create_all(app=app)
+   populate()
+   print('Created database')
 print("Server now running.")
 
 ### ===== ROUTES ===== ###
@@ -64,14 +78,34 @@ def index():
 @app.route("/cs<int:course_code>/", methods=("GET", "POST"))
 def course(course_code):
    if request.method == "POST":
-      body = request.form['comment']
-      comment_obj = Comment(
-         body=body,
-         course=course_code
-      )
-      db.session.add(comment_obj)
-      db.session.commit()
-      return redirect(url_for('course', course_code=course_code))
+      resp = make_response(redirect(url_for('course', course_code=course_code)))
+      if 'comment' in request.form:
+         body = request.form['comment']
+         comment_obj = Comment(
+            body=body,
+            course=course_code
+         )
+         db.session.add(comment_obj)
+         db.session.commit()
+      else:
+         upvoted_comment = int(request.form['comment_id'])
+         value = int(request.form['value'])
+         if not request.cookies.get('session_id'):
+            letters = string.ascii_letters
+            cookie_id = ''.join(random.choice(letters) for i in range(10))
+            resp.set_cookie('session_id', cookie_id)
+         else:
+            cookie_id = request.cookies.get('session_id')
+            existing_upvote = Upvote.query.filter_by(user_cookie=cookie_id, comment_id=upvoted_comment).first()
+            if existing_upvote:
+               if existing_upvote.value != value:
+                  existing_upvote.value = value
+                  db.session.commit()
+               return resp  
+         new_upvote = Upvote(value=value, comment_id=upvoted_comment, user_cookie=cookie_id)
+         db.session.add(new_upvote)
+         db.session.commit()
+      return resp
 
    course = Course.query.filter_by(code=course_code).first()   
    if not course:
