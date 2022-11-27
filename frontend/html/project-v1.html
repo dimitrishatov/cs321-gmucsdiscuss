@@ -1,111 +1,126 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GMU Discuss</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 <style>
-   * {
-  box-sizing: border-box;
-  	}
-
-  .container
-  {
-    padding: 10x;
-    border: 1px solid;
-  }
-
-  .cs-classes
-  {
-    color: blue;
-  }
-
   #header
   {
-    text-align: center;
+    background-color: #006633;
   }
 
-  /* Create two equal columns that floats next to each other */
-  .column {
-    float: left;
-    width: 50%;
-    padding: 10px;
+  .cover-heading
+  {
+    margin-top: 100px;
   }
 
-  /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
+  .lead
+  {
+    margin-top: 100px;
   }
-  /* style="background-color:#aaa;" */
-  /* style="background-color:#bbb;" */
-  /* style="background-color: #006940;"*/
+
+  #classes {
+    margin-top: 100px;
+  }
+
 </style>
 </head>
 <body>
+  <main>
+<header id = "header" class="p-3 border-bottom border-dark border-3">
+  <div class="container ">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start ">
+      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+      </a>
 
-<h1 id="header">GMU CS DISCUSS</h1>
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="#" class="nav-link px-2 text-white">Home</a></li>
+      </ul>
 
-<div class="row">
-  <div class="column">
-    <h2>Undergraduate Classes</h2>
-    <p style="color:red;">CS 100</p>
-    <p style="color:red;">CS 101</p>
-    <p style="color:red;">CS 105</p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS108KamberiS001.pdf">CS 108</a></p>
-    <p style="color:red;">CS 109</p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_110AllAll.html">CS 110</a></p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS112Gopalkrishna_Kamberi_ZamanAll_Sections.pdf">CS 112</a></p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_211Dimitriadis_Gonzalez_HrolenokAll.html">CS 211</a></p>
-    <p style="color:red;">CS 222</p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS262Mughal_GonzalezAll.pdf">CS 262</a></p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_306AllAll.html">CS 306</a></p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_310All_InstructorsAll.html">CS 310</a></p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/321MasriW003_004.pdf">CS 321</a></p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_321SoundararajanS002.pdf">CS 321</a></p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS321PettitR001_005.pdf">CS 321</a></p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_330RichardsD001_003.html">CS 330</a></p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/330BaldimtsiF02.pdf">CS 330</a></p>
-    <p style="color:red;">CS 332</p>
-    <p style="color:red;">CS 351</p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_367AllAll_001_002_003_004.html">CS 367</a></p>
-    <p style="color:red;">CS 390</p>
-    <p style="color:red;">CS 391</p>
-    <p style="color:red;">CS 395</p>
-    <p style="color:red;">CS 399</p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_425GingoldY.html">CS 425</a></p>
-    <p style="color:red;">CS 426</p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_440ZamanA001.pdf">CS 440</a></p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_450-003DengP.pdf">CS 450</a></p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_450ItaniW002.pdf">CS 450</a></p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_450ItaniW001.pdf">CS 450</a></p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_451GingoldY.html">CS 451</a></p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS452%20/595YuL.pdf">CS 452</a></p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_455HanB001.pdf">CS 455</a></p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_463SnyderM001.html">CS 463</a></p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_465ZhongY001.html">CS 465</a></p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_468WangX--1.html">CS 468</a></p>
-    <p style="color:red;">CS 469</p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_471ZhangX003.html">CS 471</a></p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_471ChenS001.html">CS 471</a></p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_475YangL001.pdf">CS 475</a></p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_477WhiteE002.pdf">CS 477</a></p>
-    <p style="color:red;">CS 478</p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_480DuricZ001.html">CS 480</a></p>
-    <p style="color:red;">CS 482</p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_483AvramovicI003_004.html">CS 483</a></p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS%20483RussellK001/002.html">CS 483</a></p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/484BarbaraD002.html">CS 484</a></p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_484LinJ001.html">CS 484</a></p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_485LukeS001.html">CS 485</a></p>
-    <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/487GordonS1.html">CS 487</a></p>
-    <p style="color:red;">CS 490</p>
-    <p style="color:red;">CS 491</p>
-    <p style="color:red;">CS 498</p>
-    <p style="color:red;">CS 499</p>
+      <div class="text-end">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-green text-decoration-none">
+          <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+          <span class="fs-4 text-white">GMU CS DISCUSS</span>
+        </a>
+      </div>
+
+      
+    </div>
+    <span class="border-bottom border-dark border-3"></span>
   </div>
-  <div class="column"> 
-    <h2>Graduate Classes</h2>
-    <p style="color:red;">CS 500</p>
+</header>
+
+<main id="main" role="main" class="inner cover text-center">
+  <h1 class="cover-heading">Welcome to GMU CS DICUSS!</h1>
+  <p class="lead">GMU CS DISCUSS is a forum dedicated to students to give insight on their class experience.</p>
+    <!--a href="#" class="btn btn-lg btn-secondary">See classes</a>-->
+</main>
+
+<div id="classes" class="container">
+  <div class="row text-center">
+    <div class ="col">
+      <h2>Undergraduate Classes</h2>
+      <p style="color:red;">CS 100</p>
+      <p style="color:red;">CS 101</p>
+      <p style="color:red;">CS 105</p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS108KamberiS001.pdf">CS 108</a></p>
+      <p style="color:red;">CS 109</p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_110AllAll.html">CS 110</a></p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS112Gopalkrishna_Kamberi_ZamanAll_Sections.pdf">CS 112</a></p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_211Dimitriadis_Gonzalez_HrolenokAll.html">CS 211</a></p>
+      <p style="color:red;">CS 222</p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS262Mughal_GonzalezAll.pdf">CS 262</a></p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_306AllAll.html">CS 306</a></p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_310All_InstructorsAll.html">CS 310</a></p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/321MasriW003_004.pdf">CS 321</a></p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_321SoundararajanS002.pdf">CS 321</a></p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS321PettitR001_005.pdf">CS 321</a></p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_330RichardsD001_003.html">CS 330</a></p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/330BaldimtsiF02.pdf">CS 330</a></p>
+      <p style="color:red;">CS 332</p>
+      <p style="color:red;">CS 351</p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_367AllAll_001_002_003_004.html">CS 367</a></p>
+      <p style="color:red;">CS 390</p>
+      <p style="color:red;">CS 391</p>
+      <p style="color:red;">CS 395</p>
+      <p style="color:red;">CS 399</p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_425GingoldY.html">CS 425</a></p>
+      <p style="color:red;">CS 426</p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_440ZamanA001.pdf">CS 440</a></p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_450-003DengP.pdf">CS 450</a></p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_450ItaniW002.pdf">CS 450</a></p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_450ItaniW001.pdf">CS 450</a></p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_451GingoldY.html">CS 451</a></p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS452%20/595YuL.pdf">CS 452</a></p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_455HanB001.pdf">CS 455</a></p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_463SnyderM001.html">CS 463</a></p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_465ZhongY001.html">CS 465</a></p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_468WangX--1.html">CS 468</a></p>
+      <p style="color:red;">CS 469</p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_471ZhangX003.html">CS 471</a></p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_471ChenS001.html">CS 471</a></p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_475YangL001.pdf">CS 475</a></p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_477WhiteE002.pdf">CS 477</a></p>
+      <p style="color:red;">CS 478</p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_480DuricZ001.html">CS 480</a></p>
+      <p style="color:red;">CS 482</p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_483AvramovicI003_004.html">CS 483</a></p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS%20483RussellK001/002.html">CS 483</a></p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/484BarbaraD002.html">CS 484</a></p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_484LinJ001.html">CS 484</a></p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_485LukeS001.html">CS 485</a></p>
+      <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/487GordonS1.html">CS 487</a></p>
+      <p style="color:red;">CS 490</p>
+      <p style="color:red;">CS 491</p>
+      <p style="color:red;">CS 498</p>
+      <p style="color:red;">CS 499</p>
+    </div>
+    <div class ="col">
+      <h2>Graduate Classes</h2>
+      <p style="color:red;">CS 500</p>
     <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_504DengP001.pdf">CS 504</a></p>
     <p style="color:red;">CS 530</p>
     <p style="color:blue;"><a href="https://cs.gmu.edu/media/syllabi/Fall2022/CS_531ChenJ002.html">CS 531</a></p>
@@ -178,7 +193,10 @@
     <p style="color:red;">CS 896</p>
     <p style="color:red;">CS 998</p>
     <p style="color:red;">CS 999</p>
+    </div>
   </div>
 </div>
+  </main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>
