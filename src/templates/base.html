@@ -2,17 +2,231 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>{% block title %} {% endblock %} - GMU CS Discuss</title>
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            height:auto;
+        }
+        a {
+            color: #000; 
+            text-decoration: none;
+            pointer-events:none; /*assign to buttons */
+        }
+        h5 {
+            margin-left: 84%;
+            margin-bottom: -35px;
+        }
+        hr {
+            border: 0;
+            border-top: 2px solid rgba(251, 251, 251, 0.454);
+            border-style: groove;
+            padding: 10px;
+
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            height: 100%;
+            height: auto;
+            display: grid;
+            grid-template-rows: 30px 1fr 50px;
+        }
+        nav {
+            background-color:#006633;
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            min-height: 100px;
+            text-align: center;
+            padding-top: 20px;
+            border-bottom: 3px;
+        }
+        nav h1 a{
+            color: #FFFF;
+            font-size: xx-large;
+        }
+        .container{
+            min-width: 500;
+        }
+        .container#container-container{
+            background-color:hsl(55, 90%, 96%);
+            max-width: 1000px;
+            margin: 50px auto;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            min-height: 500px;
+            border: 4px solid #FFCC33;
+            border-radius: 8px;
+        }
+        .container-header {
+            align-items: center;
+            text-align: center;
+            display: flex;
+            background-color: #FFCC33;
+            width: 102%;
+            min-height: 50px;
+            margin-left: -4px;
+            padding-top: 10px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+        .container-header h2 {
+            padding: 10px;
+            padding-top: 5px;
+            padding-bottom: 13px;
+            color: #006633;
+        }
+        .container-header h2#index-header {
+            padding-top: 5px;
+            padding-bottom: 13px;
+            color: #006633;
+        }
+        .container#index-container{
+            display: grid;
+            grid-template-columns: 300px 300px;
+            max-width: 800px;
+            margin: 30px auto;
+            margin-top: 3%;
+            min-height: 300px;
+            padding: 30px;
+            border-radius: 5px;
+        }
+        .container#course-container {
+            max-width: 800px;
+            margin: 30px auto;
+            margin-top: 3%;
+            min-height: 300px;
+            padding: 30px;
+            border-radius: 5px;
+        }
+        #comment {
+            width: 550px;
+            height: 100px;
+            border-radius: 10px;
+            box-shadow: 0 0 0 1px #000;
+            border: 2px solid transparent;
+            margin: 10px;
+            padding: 10px;
+        }
+        #comment:focus {
+            outline:none;
+            box-shadow: 0 0 0 1px #7cb2e5;  
+
+        }
+        #comment-label {
+            margin: 5px;
+            font-size: 15px;
+            color: #7cb2e5;
+        }
+        .course-div {
+            background-color: #25945d50;
+            border: 3px solid #006633;
+            padding: 10px 20px;
+            cursor: pointer;
+            width: fit-content;
+            margin: 10px;
+            border-radius: 4px;
+            user-select: none;
+        }
+        .course-div a {
+            pointer-events: all;
+        }
+        .course-div h3 {
+            margin-left: 9px;
+        }
+        .course-div p {
+            color: white;
+        }
+        .btn {
+            display: inline-block;
+            background: #7cb2e5;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 15px;
+            font-family: inherit;
+        }
+        .btn#home-btn {
+            margin: 10px;
+            margin-top: 0px;
+            margin-bottom: 15px;
+            padding: 10px;
+        }
+        .btn#up {
+            background: #7bd178;
+            padding: 2px 5px;
+            margin-left: 90%;
+        }
+        .btn#down {
+            background: #dc3f3f;
+            padding: 2px 5px;
+            margin-left: 90%;
+        }
+        .btn:focus {
+            outline: none;
+        }
+        .btn:active {
+            transform: scale(0.98);
+        }
+        #button-animation {
+            display: none;
+        }
+        #icon {
+            transition: all .75s ease;
+            transform: rotate(0);
+        }
+        #button-animation:checked + #icon {
+            transform: rotate(180deg);
+        }
+        #submit-block {
+            display: block;
+        }
+        #submit-btn {
+            margin-left: 80%;
+        }
+        .post {
+            border-radius: 10px;
+            background-color: #FFFF;
+            border: 3px solid #006633;
+            padding: 10px;
+            margin: 7px;
+        }
+        .post #comment-body {
+            margin-bottom: 15px;
+        }
+        footer {
+            background-color:#006633;
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            border-top: 3px;
+            min-height: 50px;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
     <nav>
-        <h1><a href="{{ url_for('index') }}">GMU CS Discuss</a></h1>
+        <h1>
+            <a href="{{ url_for('index') }}">GMU CS Discuss</a>
+            
+        </h1>
     </nav>
-    <hr>
-    <div class="content">
+
+        
         {% block content %} {% endblock %}
-    </div>
+    <footer>
+
+    </footer>
 </body>
 </html>
