@@ -1,38 +1,53 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <span class="title">
-        <h1>{% block title %} CS {{ course.code }}: {{ course.name }}{% endblock %}</h1>
-    </span>
-    <div class="content">
+<div class="container" id="container-container">
+    <div class="container-header">
+        <button onclick="location.href='{{ url_for('index') }}'" class="btn" id="home-btn">
+            <i class="fa fa-home"></i> 
+        </button>
+        <h2>{% block title %} CS {{ course.code }}: {{ course.name }}{% endblock %}</h2>
 
-    <form method="post">
-        <label for="comment">
-            Have some thoughts on this class? Leave a comment! (1000 char limit)
-        </label>
+
+    </div>
+
+    <div class="container" id="course-container">
+        
+        <form method="post">
+            <label id="comment-label" for="comment">
+                Have some thoughts on this class? Leave a comment! (1000 char limit)
+            </label>
+            <br>
+            <textarea id="comment" name="comment" maxlength="1000"></textarea>
+            <br>
+            <div id="submit-block">
+                <input type='checkbox' id='button-animation' />
+                <button type="submit" class="btn" id="submit-btn">Submit</button>
+            </div>
+            
+        </form>
         <br>
-        <textarea id="comment" name="comment" rows="4" cols="50" maxlength="1000"></textarea>
-        <br>
-        <button type="submit">Submit</button>
-    </form>
-    <br>
-
-    <h2>Comments</h2>
-    {% for comment in comments %}
-        <div class="post">
-            <p>{{comment.body}} by Anonymous at {{comment.timestamp}} ({{comment.upvotes|sum(attribute='value')}})</p>
-            <form method="post">
-                <input type="hidden" id="comment_id" name="comment_id" value="{{comment.id}}">
-                <input type="hidden" id="value" name="value" value="1">
-                <button type="submit">Upvote</button>
-            </form>
-            <form method="post">
-                <input type="hidden" id="comment_id" name="comment_id" value="{{comment.id}}">
-                <input type="hidden" id="value" name="value" value="-1">
-                <button type="submit">Downvote</button>
-            </form>
-        </div>
-    {% endfor %}
-
+        <hr />
+        <h2>Comments</h2>
+        {% for comment in comments %}
+            <div class="post">
+                <p id="comment-body">{{comment.body}}</p>
+                
+                <h5>{{comment.upvotes|sum(attribute='value')}}</h5>
+                <form method="post">
+                    <input type="hidden" id="comment_id" name="comment_id" value="{{comment.id}}">
+                    <input type="hidden" id="value" name="value" value="1">
+                    <button class="btn" type="submit" id="up"><i class="fa fa-caret-up"></i></button>
+                </form>
+                <form method="post">
+                    <input type="hidden" id="comment_id" name="comment_id" value="{{comment.id}}"/>
+                    <input type="hidden" id="value" name="value" value="-1"/>
+                    <button class="btn" type="submit" id="down"><i class="fa fa-caret-down"></i></button>
+                </form>
+                <hr style="width: 80%;"/>
+                <p> by Anonymous at {{comment.timestamp}} </p>
+            </div>
+        {% endfor %}
     </div> 
+</div>
 {% endblock %}

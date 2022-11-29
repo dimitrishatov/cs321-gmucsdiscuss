@@ -1,12 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2 class="title">{% block title %} Courses {% endblock %}</h1>
-    <div class="content">
-        {% for course in courses %}
-            <div class="course">
-                <p><a href="{{ url_for('course', course_code=course.code) }}" + ><b>CS {{ course.code }}:</b> {{ course.name }}</a></p> 
-            </div>
-        {% endfor %}
+<div class="container" id="container-container">
+    <div class="container-header">
+        <h2 id="index-header">{% block title %} Course List {% endblock %}</h2>
     </div>
-{% endblock %}
+
+        <div class="container" id="index-container">
+            {% for course in courses %}
+                <div class="course-div">
+                    <a href="{{ url_for('course', course_code=course.code) }}" style="color: #006633;">
+                    <h3 id="coco">{{course.code}}</h3>
+                    <p id="cona">{{course.name}}</p>
+                    </a>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+</div>
+    {% endblock %}
